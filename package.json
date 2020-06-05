@@ -1,0 +1,35 @@
+{
+  "name": "handmade-livereload-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A Webapack plugin that allows pages to be automatically reloaded without the DevServer",
+  "main": "./index.js",
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --collect-coverage",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "report-codacy": "cat ./coverage/lcov.info | codacy-coverage"
+  },
+  "author": "Simone Sacchi <zsimo30@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsimo/handmade-livereload-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zsimo/handmade-livereload-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/zsimo/handmade-livereload-webpack-plugin",
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {},
+  "files": [],
+  "keywords": [
+    "webpack",
+    "livereload"
+  ],
+  "dependencies": {
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  }
+}
