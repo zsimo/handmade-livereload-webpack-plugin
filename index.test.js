@@ -30,13 +30,13 @@ describe("handmade-livereload-webpack-plugin", () => {
             });
         }).toThrowError("options.base_url is mandatory");
     });
-    test("config file exists", () => {
-        plugin({
-            port: 1234,
-            base_url: "localhost"
-        });
-        expect(fs.existsSync(path.resolve(process.cwd(), "config.json"))).toBe(true);
-    });
+    // test("config file exists", () => {
+    //     plugin({
+    //         port: 1234,
+    //         base_url: "localhost"
+    //     });
+    //     expect(fs.existsSync(path.resolve(process.cwd(), "config.json"))).toBe(true);
+    // });
     test("config file exists", () => {
         var p = plugin({
             port: 1234,
