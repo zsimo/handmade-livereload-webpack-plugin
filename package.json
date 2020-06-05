@@ -25,7 +25,11 @@
   "devDependencies": {
     "jest": "^26.0.1"
   },
-  "files": [],
+  "files": [
+    "index.js",
+    "src/client.js",
+    "src/plugin.js"
+  ],
   "keywords": [
     "webpack",
     "livereload"
