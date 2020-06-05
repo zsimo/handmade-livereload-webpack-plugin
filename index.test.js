@@ -1,22 +1,60 @@
 "use strict";
 
 var path = require("path");
+var plugin = require(path.resolve(process.cwd(), "index"));
+var fs = require("fs");
 
+// create a function into global context for Jest
+global.console = {
+    log: jest.fn(),
+    info: jest.fn(),
+    error: jest.fn()
+}
 
 describe("handmade-livereload-webpack-plugin", () => {
 
-    // test("If there is no attempts, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 0
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
+    test("missing options", () => {
+        expect(function () {
+            plugin();
+        }).toThrowError("options is mandatory");
+    });
+    test("missing options.port", () => {
+        expect(function () {
+            plugin({});
+        }).toThrowError("options.port is mandatory");
+    });
+    test("missing options.base_url", () => {
+        expect(function () {
+            plugin({
+                port: 1234
+            });
+        }).toThrowError("options.base_url is mandatory");
+    });
+    test("config file exists", () => {
+        plugin({
+            port: 1234,
+            base_url: "localhost"
+        });
+        expect(fs.existsSync(path.resolve(process.cwd(), "config.json"))).toBe(true);
+    });
+    test("config file exists", () => {
+        var p = plugin({
+            port: 1234,
+            base_url: "localhost"
+        });
+        expect(typeof p.path_to_client).toBe("string");
+    });
+    // test("console.log", () => {
+    //     var HandmadeLiveReload = plugin({
+    //         port: 1234,
+    //         base_url: "http://brunelleschi"
+    //     });
+    //     new HandmadeLiveReload.plugin();
+    //     // expect(global.console.log).toHaveBeenCalledWith(
+    //     //     'handmade_live_reload_webpack_plugin start on 1234'
+    //     // )
     // });
-    // test("first attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 1
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
+
     // test("second attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
     //     var strategy = retryStrategy();
     //     expect(strategy({
