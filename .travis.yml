@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - "10"
+branches:
+  only:
+  - master
 # Only build tags
 if: tag IS present
 script:
@@ -8,6 +11,6 @@ script:
 deploy:
   provider: npm
   email: "zsimo30@gmail.com"
-  api_key: $NPM_TOKEN
+  api_token: $NPM_TOKEN
   on:
     tags: true
