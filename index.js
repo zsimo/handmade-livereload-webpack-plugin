@@ -10,8 +10,8 @@ module.exports = function (options) {
     if (!options.hasOwnProperty("port")) {
         throw new Error("options.port is mandatory");
     }
-    if (!options.hasOwnProperty("base_url")) {
-        throw new Error("options.base_url is mandatory");
+    if (!options.hasOwnProperty("host")) {
+        throw new Error("options.host is mandatory");
     }
 
     fs.writeFileSync(path.resolve(__dirname, "src", "config.json"), JSON.stringify(options));

@@ -23,109 +23,21 @@ describe("handmade-livereload-webpack-plugin", () => {
             plugin({});
         }).toThrowError("options.port is mandatory");
     });
-    test("missing options.base_url", () => {
+    test("missing options.host", () => {
         expect(function () {
             plugin({
                 port: 1234
             });
-        }).toThrowError("options.base_url is mandatory");
+        }).toThrowError("options.host is mandatory");
     });
-    // test("config file exists", () => {
-    //     plugin({
-    //         port: 1234,
-    //         base_url: "localhost"
-    //     });
-    //     expect(fs.existsSync(path.resolve(process.cwd(), "config.json"))).toBe(true);
-    // });
-    test("config file exists", () => {
+
+    test("path is a string", () => {
         var p = plugin({
             port: 1234,
-            base_url: "localhost"
+            host: "localhost"
         });
         expect(typeof p.path_to_client).toBe("string");
     });
-    // test("console.log", () => {
-    //     var HandmadeLiveReload = plugin({
-    //         port: 1234,
-    //         base_url: "http://brunelleschi"
-    //     });
-    //     new HandmadeLiveReload.plugin();
-    //     // expect(global.console.log).toHaveBeenCalledWith(
-    //     //     'handmade_live_reload_webpack_plugin start on 1234'
-    //     // )
-    // });
 
-    // test("second attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 2
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    // test("third attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 3
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    // test("fourth attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 4
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    // test("fifth attempt, wait for DELAY_OF_RETRY_ATTEMPTS", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 5
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    // test("after the fifth, wait for WAIT_TIME", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 6
-    //     })).toEqual(times.WAIT_TIME);
-    // });
-    // test("after the sixth, wait for WAIT_TIME", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 7
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    // test("after the eleventh, wait for WAIT_TIME", () => {
-    //     var strategy = retryStrategy();
-    //     expect(strategy({
-    //         attempt: 12
-    //     })).toEqual(times.WAIT_TIME);
-    // });
-    //
-    // test("if number_of_retry_attempts is 0, end reconnecting with built in error", () => {
-    //     var strategy = retryStrategy({
-    //         number_of_retry_attempts: 0
-    //     });
-    //     expect(strategy({
-    //         attempt: 12
-    //     })).toEqual(undefined);
-    // });
-    //
-    // test("change delay_of_retry_attempts", () => {
-    //     var strategy = retryStrategy({
-    //         delay_of_retry_attempts: 600,
-    //         number_of_retry_attempts: 5
-    //     });
-    //     expect(strategy({
-    //         attempt: 3
-    //     })).toEqual(times.DELAY_OF_RETRY_ATTEMPTS);
-    // });
-    //
-    // test("change wait_time", () => {
-    //     var strategy = retryStrategy({
-    //         delay_of_retry_attempts: 500,
-    //         number_of_retry_attempts: 5,
-    //         wait_time: 1000
-    //     });
-    //     expect(strategy({
-    //         attempt: 12
-    //     })).toEqual(times.WAIT_TIME);
-    // });
 
 });
