@@ -1,16 +1,13 @@
 language: node_js
 node_js:
   - "10"
-branches:
-  only:
-  - master
 # Only build tags
 if: tag IS present
 script:
-  - npm run test
+  - npm run test-coverage
 deploy:
   provider: npm
   email: "zsimo30@gmail.com"
-  api_token: $NPM_TOKEN
+  api_key: $NPM_TOKEN
   on:
     tags: true
