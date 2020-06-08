@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "10"
 # Only build tags
-if: tag IS present
+
 script:
   - npm run test-coverage
 deploy:
