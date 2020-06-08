@@ -5,9 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "test": "jest",
-    "test-coverage": "jest --collect-coverage",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "report-codacy": "cat ./coverage/lcov.info | codacy-coverage"
+    "test-coverage": "jest --collect-coverage"
   },
   "author": "Simone Sacchi <zsimo30@gmail.com>",
   "license": "MIT",
