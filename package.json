@@ -21,7 +21,7 @@
     "node": ">=8"
   },
   "devDependencies": {
-    "jest": "^26.0.1"
+    "jest": "^26.6.3"
   },
   "files": [
     "index.js",
@@ -33,7 +33,7 @@
     "livereload"
   ],
   "dependencies": {
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1"
   }
 }
