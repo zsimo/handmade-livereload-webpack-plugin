@@ -6,7 +6,11 @@ module.exports = function (options) {
     class HandmadeLiveReload {
         constructor(){
             var server = require("http").Server();
-            this.io = require("socket.io")(server);
+            this.io = require("socket.io")(server, {
+                cors: {
+                    origin: options.host
+                }
+            });
             server.listen(options.port);
             console.log("handmade_live_reload_webpack_plugin start on " + options.port);
         }
