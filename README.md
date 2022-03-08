@@ -4,6 +4,7 @@ A Webpack plugin that allows pages to be automatically reloaded without the DevS
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://api.travis-ci.com/zsimo/handmade-livereload-webpack-plugin.svg)](https://travis-ci.com/zsimo/handmade-livereload-webpack-plugin)
 [![env](https://img.shields.io/badge/env-development-blue)](https://img.shields.io/badge/env-development-blue)
+[![Known Vulnerabilities](https://snyk.io/test/npm/handmade-livereload-webpack-plugin/badge.svg)](https://snyk.io/test/npm/handmade-livereload-webpack-plugin)
 
 
 
