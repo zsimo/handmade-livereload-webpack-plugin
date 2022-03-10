@@ -19,8 +19,8 @@ It's a `development` only module.
 This module is composed by 2 little components:
 - the webpack plugin itself, that every time the compiler `done` event is emitted,
  sends a `ws` data called `reload`
-- a script, to be injected in the involved web pages, that is listening for the socket.io `reload`
-event and reacts reloading the page by doing `window.location.reload()`
+- a script, to be injected in the involved web pages, that is listening for the WebSocket `message` event
+with `event.data === "RELOAD"` and reacts reloading the page by doing `window.location.reload()`
 
 
 ## Install
