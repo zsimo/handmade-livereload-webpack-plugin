@@ -1,24 +1,22 @@
 "use strict";
 
+var {WebSocketServer} = require('ws');
+var wsInstance;
 
 module.exports = function (options) {
 
     class HandmadeLiveReload {
         constructor(){
-            var server = require("http").Server();
-            this.io = require("socket.io")(server, {
-                cors: {
-                    origin: options.host
-                }
+            const wss = new WebSocketServer({ port: options.port });
+            wss.on('connection', function connection(ws) {
+                wsInstance = ws;
             });
-            server.listen(options.port);
-            console.log("handmade_live_reload_webpack_plugin start on " + options.port);
         }
         apply(compiler) {
             compiler.hooks.done.tap('HandmadeLiveReload', (
                 stats /* stats is passed as an argument when done hook is tapped.  */
             ) => {
-                this.io.emit("RELOAD");
+                wsInstance.send('RELOAD');
             });
         }
     }

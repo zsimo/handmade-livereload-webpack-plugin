@@ -11,14 +11,14 @@ A Webpack plugin that allows pages to be automatically reloaded without the DevS
 This is a very simple [Webpack](https://webpack.js.org/) plugin that allows to reload web pages while developing,
 without the need to set up the [DevServer](https://webpack.js.org/configuration/dev-server/).
 This reduces configuration differences between `production` and `development`.
-It uses [socket.io](https://socket.io/).
+It uses [ws](https://github.com/websockets/ws).
 It's a `development` only module.
 
 
 ## How it works
 This module is composed by 2 little components:
 - the webpack plugin itself, that every time the compiler `done` event is emitted,
- emits a `socket.io` event called `reload`
+ sends a `ws` data called `reload`
 - a script, to be injected in the involved web pages, that is listening for the socket.io `reload`
 event and reacts reloading the page by doing `window.location.reload()`
 

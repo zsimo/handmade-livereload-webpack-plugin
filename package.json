@@ -33,7 +33,6 @@
     "livereload"
   ],
   "dependencies": {
-    "socket.io": "^4.4.1",
-    "socket.io-client": "^4.4.1"
+    "ws": "^8.5.0"
   }
 }
