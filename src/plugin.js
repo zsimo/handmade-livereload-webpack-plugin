@@ -16,7 +16,9 @@ module.exports = function (options) {
             compiler.hooks.done.tap('HandmadeLiveReload', (
                 stats /* stats is passed as an argument when done hook is tapped.  */
             ) => {
-                wsInstance.send('RELOAD');
+                if (wsInstance) {
+                    wsInstance.send('RELOAD');
+                }
             });
         }
     }
