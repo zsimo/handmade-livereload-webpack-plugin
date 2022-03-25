@@ -18,7 +18,7 @@ It's a `development` only module.
 ## How it works
 This module is composed by 2 little components:
 - the webpack plugin itself, that every time the compiler `done` event is emitted,
- sends a `ws` data called `reload`
+ sends a `ws` event called `RELOAD`
 - a script, to be injected in the involved web pages, that is listening for the WebSocket `message` event
 with `event.data === "RELOAD"` and reacts reloading the page by doing `window.location.reload()`
 
@@ -69,6 +69,8 @@ that can be added to the webpack entries in order to be compiled:
        chunks: ['app', 'handmade_live_reload']
     })
     ```
+###
+Thanks to [@pmwmedia](https://github.com/pmwmedia) for the Typescript types definitions!
 
 ## License
 [MIT](https://github.com/zsimo/env-to-config/blob/master/LICENSE)
