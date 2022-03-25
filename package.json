@@ -1,6 +1,6 @@
 {
   "name": "handmade-livereload-webpack-plugin",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "A Webpack plugin that allows pages to be automatically reloaded without the DevServer",
   "main": "./index.js",
   "types": "./index.d.ts",
