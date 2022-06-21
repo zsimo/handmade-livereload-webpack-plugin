@@ -35,6 +35,6 @@
     "livereload"
   ],
   "dependencies": {
-    "ws": "^8.5.0"
+    "ws": "^8.6.0"
   }
 }
