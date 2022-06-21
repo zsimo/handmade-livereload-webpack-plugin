@@ -5,6 +5,8 @@ var wsInstance;
 
 module.exports = function (options) {
 
+    const delay = options.delay || 0;
+
     class HandmadeLiveReload {
         constructor(){
             const wss = new WebSocketServer({ port: options.port });
@@ -17,7 +19,9 @@ module.exports = function (options) {
                 stats /* stats is passed as an argument when done hook is tapped.  */
             ) => {
                 if (wsInstance) {
-                    wsInstance.send('RELOAD');
+                    setTimeout(function () {
+                        wsInstance.send('RELOAD');
+                    }, delay);
                 }
             });
         }

@@ -29,13 +29,13 @@ yarn add handmade-livereload-webpack-plugin -D
 ```
 
 ## Usage
-In the webpack configuration file, the  must be first initialized with
-the 2 mandatory keys `port` and `host`. 
+In the webpack configuration file, it must be first initialized with two mandatory keys `port` and `host` and one optional key `delay` (in milliseconds). 
 ```js
 // webpack.config.js file
 var HandmadeLiveReload = require("handmade-livereload-webpack-plugin")({
     port: 1234,
-    host: "localhost"
+    host: "localhost",
+    delay: 100 // emit the RELOAD event 100 ms after the webpack `done` hook
 });
 ```
 
